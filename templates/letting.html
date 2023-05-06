@@ -1,8 +1,16 @@
-<title>{{ title }}</title>
-<h1>{{ title }}</h1>
-<p>{{ address.number }} {{ address.street }}</p>
-<p>{{ address.city }}, {{ address.state }} {{ address.zip_code }}</p>
-<p>{{ address.country_iso_code }}</p>
-<div><a href="{% url 'lettings_index' %}">Back</a></div>
-<div><a href="{% url 'index' %}">Home</a></div>
-<div><a href="{% url 'profiles_index' %}">Profiles</a></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <p>{{ address.number }} {{ address.street }}</p>
+    <p>{{ address.city }}, {{ address.state }} {{ address.zip_code }}</p>
+    <p>{{ address.country_iso_code }}</p>
+    <div><a href="{% url 'lettings_index' %}">Back</a></div>
+    <div><a href="{% url 'index' %}">Home</a></div>
+    <div><a href="{% url 'profiles_index' %}">Profiles</a></div>
+</body>
+</html>
