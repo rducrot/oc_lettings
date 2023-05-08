@@ -6,7 +6,9 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('oc_lettings_site', '0003_auto_20230506_1822'),
+        ('oc_lettings_site', '0003_remove_profile_related_name'),
+        ('profiles', '0002_move_data'),
+        ('lettings', '0002_move_data'),
     ]
 
     operations = [
