@@ -22,14 +22,12 @@ jobs:
 #  deploy:
 
 workflows:
-  test_app:
+  main:
     jobs:
       - build_and_test
-  build-and-publish-docker-image:
-    jobs:
       - docker/publish:
           image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
           filters:
             branches:
               only: master
-    requires: test_app
+          requires: test_app
