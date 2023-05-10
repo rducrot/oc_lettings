@@ -34,7 +34,7 @@ workflows:
       - azure-acr/build-and-push-image:
           login-server-name: oclettings.azurecr.io
           registry-name: oclettings
-          repo: oclettings
+          repo: oclettings.azurecr.io/app
           tag: $CIRCLE_TAG
           requires:
             - build_and_test
