@@ -27,8 +27,10 @@ workflows:
       - build_and_test
       - docker/publish:
           image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
+          requires:
+            - test_app
           filters:
             branches:
               only:
                 - master
-          requires: test_app
+
