@@ -19,12 +19,10 @@ jobs:
           name: Run tests
           command: python -m pytest
 
-#  dockerize:
-
 #  deploy:
 
 workflows:
-  test_my_app:
+  test_app:
     jobs:
       - build_and_test
   build-and-publish-docker-image:
@@ -34,3 +32,4 @@ workflows:
           filters:
             branches:
               only: master
+          requires: test_app
