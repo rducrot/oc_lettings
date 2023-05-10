@@ -32,4 +32,4 @@ workflows:
           filters:
             branches:
               only: master
-          requires: test_app
+    requires: test_app
