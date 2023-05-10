@@ -29,5 +29,6 @@ workflows:
           image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
           filters:
             branches:
-              only: master
+              only:
+                - master
           requires: test_app
