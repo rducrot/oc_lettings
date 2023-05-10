@@ -3,7 +3,7 @@ version: 2.1
 orbs:
   python: circleci/python@2.1.1
   docker: circleci/docker@2.2.0
-  azure-cli: circleci/azure-cli@1.2.2
+  azure-acr: circleci/azure-acr@0.2.1
 
 jobs:
   build_and_test:
@@ -19,8 +19,6 @@ jobs:
           name: Run tests
           command: python -m pytest
 
-#  deploy:
-
 workflows:
   main:
     jobs:
@@ -33,4 +31,15 @@ workflows:
             branches:
               only:
                 - master
-
+      - azure-acr/build-and-push-image:
+          login-server-name: oclettings.azurecr.io
+          registry-name: oclettings
+          repo: oclettings
+          tag: $CIRCLE_TAG
+          requires:
+            - build_and_test
+            - docker/publish
+          filters:
+            branches:
+              only:
+                - master
