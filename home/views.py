@@ -10,4 +10,4 @@ def index(request):
     erat ac orci placerat luctus. Nullam elementum urna nisi, pellentesque iaculis enim cursus in.
     Praesent volutpat porttitor magna, non finibus neque cursus id.
     """
-    return render(request, 'index.html')
+    return render(request, 'home/index.html')
