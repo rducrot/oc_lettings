@@ -11,3 +11,11 @@ def index(request):
     Praesent volutpat porttitor magna, non finibus neque cursus id.
     """
     return render(request, 'home/index.html')
+
+
+def sentry_error(request):
+    """
+    Triggers an error to be handled in Sentry.
+    """
+    division_by_zero = 1 / 0
+    return division_by_zero

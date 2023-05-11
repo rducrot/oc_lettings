@@ -1,4 +1,5 @@
 **/__pycache__
 *.pyc
 .idea
+oc_lettings_site/.env
 venv
