@@ -25,6 +25,7 @@ workflows:
       - build_and_test
       - docker/publish:
           image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
+          extra_build_args: '-e SECRET_KEY=$SECRET_KEY'
           requires:
             - build_and_test
           filters:
@@ -35,7 +36,6 @@ workflows:
           login-server-name: oclettings.azurecr.io
           registry-name: oclettings
           repo: app
-          extra_build_args: '-e SECRET_KEY=$SECRET_KEY'
           requires:
             - docker/publish
           filters:
