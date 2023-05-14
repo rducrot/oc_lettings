@@ -24,7 +24,7 @@ workflows:
     jobs:
       - build_and_test
       - docker/publish:
-          image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
+          image: $DOCKER_PROJECT_USERNAME/$DOCKER_PROJECT_REPONAME
           requires:
             - build_and_test
           filters:
@@ -32,9 +32,9 @@ workflows:
               only:
                 - master
       - azure-acr/build-and-push-image:
-          login-server-name: oclettings.azurecr.io
-          registry-name: oclettings
-          repo: app
+          login-server-name: $AZURE_LOGIN_SERVER_NAME
+          registry-name: $AZURE_REGISTRY_NAME
+          repo: $AZURE_REPO
           requires:
             - docker/publish
           filters:
