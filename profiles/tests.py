@@ -22,9 +22,9 @@ class TestViews:
     def test_index(self, client):
         sut = client.get(reverse('profiles:index'))
         assert sut.status_code == 200
-        assert b'<h1 class="w-100 text-center mt-5">Profiles</h1>' in sut.content
+        assert b'<h1>Profiles</h1>' in sut.content
 
     def test_profile(self, client):
         sut = client.get(reverse('profiles:profile', kwargs={'username': '4meRomance'}))
         assert sut.status_code == 200
-        assert b'<h1 class="w-100 text-center mt-5">4meRomance</h1>' in sut.content
+        assert b'<h1>4meRomance</h1>' in sut.content
